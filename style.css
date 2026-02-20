@@ -3,6 +3,7 @@
     --sec: #fffffffa;
     --tri1: lightseagreen;
     --tri2: #957C62;
+    --red: red;
 }
 
 @font-face {
@@ -96,7 +97,7 @@ section.allElems{
 .back{
     position: absolute;
     right: 5%;
-    background-color: #b0d312;
+    background-color: var(--red);
     border-radius: 10px;
     padding: 10px 18px;
     border: none;
@@ -132,13 +133,14 @@ section.allElems{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 2.5vw;
+    padding: 2vw;
 }
-.todo-container .addTask form input{
+.todo-container .addTask form #task-input{
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
-    background-color: #20191980;
+    background-color: #ffffffe0;
+    color: #111;
     border-radius: 0.5vw;
     border: none;
     outline: none;
@@ -148,7 +150,8 @@ section.allElems{
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
-    background-color: #20191980;
+    background-color: #ffffffe0;
+    color: #111;
     border-radius: 0.5vw;
     border: none;
     outline: none;
@@ -159,7 +162,7 @@ section.allElems{
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
     background-color: #b0d312;
-    font-weight: 700;
+    font-weight: 500;
     border-radius: 0.5vw;
     border: none;
     outline: none;
@@ -179,17 +182,60 @@ section.allElems{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 3vw;
+    padding: 2vw;
+    overflow: auto;
 }
 .task{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: var(--sec);
+    background-color: #ffffffe0;
     padding: 1vw;
+    border-radius: 0.5vw;
+    margin-bottom: 10px;
 }
 .task h5{
     color: #222;
-    
+    font-size: 1.4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4vw;
+}
+.task h5 span{
+    background-color: var(--red);
+    color: rgba(255, 255, 255, 0.808);
+    padding: 0.2vw 0.4vw;
+    border-radius: 5vw;
+    font-size: 0.7rem;
+}
+.task h5 span.true{
+    opacity: 1;
+}
+.task h5 span.false{
+    opacity: 0;
+}
+.task button{
+    padding: 1vw;
+    color: var(--sec);
+    background-color: green;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.5vw;
+    border: none;
+}
+.mark-imp{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1vw 0.4vw;
+    margin-bottom: 0.5vw;
+    width: 100%;
+    gap: 1vw;
+}
+.mark-imp input{
+    scale: 1.8;
+}
+.mark-imp label{
+    font-size: 1.1rem;
 }
