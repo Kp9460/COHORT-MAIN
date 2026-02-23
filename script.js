@@ -135,66 +135,71 @@ function motivationalQuote() {
 
 motivationalQuote();
 
-let timer = document.querySelector(".pomo-timer h1");
-var startBtn = document.querySelector(".pomo-timer .start-timer");
-var pauseBtn = document.querySelector(".pomo-timer .pause-timer");
-var resetBtn = document.querySelector(".pomo-timer .reset-timer");
-var session = document.querySelector('.pomodoro-fullpage .session')
-var isWorkSession = true;
+function pomodoroTimer() {
+  let timer = document.querySelector(".pomo-timer h1");
+  var startBtn = document.querySelector(".pomo-timer .start-timer");
+  var pauseBtn = document.querySelector(".pomo-timer .pause-timer");
+  var resetBtn = document.querySelector(".pomo-timer .reset-timer");
+  var session = document.querySelector(".pomodoro-fullpage .session");
+  var isWorkSession = true;
 
-let totalSeconds = 25 * 60;
-let timerInterval = null;
+  let totalSeconds = 25 * 60;
+  let timerInterval = null;
 
-function upDateTimer() {
-  let minutes = Math.floor(totalSeconds / 60);
-  let seconds = totalSeconds % 60;
+  function upDateTimer() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
 
-  timer.innerHTML = `${Strings(minutes).padStart("2", "0")}:${Strings(seconds).padStart("2", "0")}`;
-}
-
-upDateTimer();
-
-function startTimer() {
-  clearInterval(timerInterval);
-
-  if(isWorkSession){
-    session.innerHTML = 'Work Session'
-    totalSeconds = 25*60
-    timerInterval = setInterval(function () {
-    if (totalSeconds > 0) {
-      totalSeconds--;
-      upDateTimer();
-    } else {
-      isWorkSession = false;
-      clearInterval(timerInterval);
-      timer.innerHTML = '05:00'
-    }
-  }, 1000);
-  }else{
-    session.innerHTML = 'Break'
-    totalSeconds = 5*60
-    timerInterval = setInterval(function () {
-    if (totalSeconds > 0) {
-      totalSeconds--;
-      upDateTimer();
-    } else {
-      isWorkSession = true;
-      clearInterval(timerInterval);
-      timer.innerHTML = '25:00'
-    }
-  }, 1000);
+    timer.innerHTML = `${String(minutes).padStart("2", "0")}:${String(seconds).padStart("2", "0")}`;
   }
-}
 
-function pauseTimer() {
-  clearInterval(timerInterval);
-}
-function resetTimer() {
-  totalSeconds = 25 * 60;
-  clearInterval(timerInterval);
   upDateTimer();
-}
 
-startBtn.addEventListener("click", startTimer);
-pauseBtn.addEventListener("click", pauseTimer);
-resetBtn.addEventListener("click", resetTimer);
+  function startTimer() {
+    clearInterval(timerInterval);
+
+    if (isWorkSession) {
+      timerInterval = setInterval(function () {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          upDateTimer();
+        } else {
+          isWorkSession = false;
+          clearInterval(timerInterval);
+          timer.innerHTML = "05:00";
+          session.innerHTML = "Take a Break";
+          session.style.backgroundColor = "var(--blue)";
+          totalSeconds = 5 * 60;
+        }
+      }, 1000);
+    } else {
+      timerInterval = setInterval(function () {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          upDateTimer();
+        } else {
+          isWorkSession = true;
+          clearInterval(timerInterval);
+          timer.innerHTML = "25:00";
+          session.innerHTML = "Work Session";
+          session.style.backgroundColor = "var(--green)";
+          totalSeconds = 25 * 60;
+        }
+      }, 1000);
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval);
+  }
+  function resetTimer() {
+    totalSeconds = 25 * 60;
+    clearInterval(timerInterval);
+    upDateTimer();
+  }
+
+  startBtn.addEventListener("click", startTimer);
+  pauseBtn.addEventListener("click", pauseTimer);
+  resetBtn.addEventListener("click", resetTimer);
+}
+pomodoroTimer();
