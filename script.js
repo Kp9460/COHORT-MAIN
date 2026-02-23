@@ -18,7 +18,6 @@ function openFeatures() {
 
 openFeatures();
 
-
 function todoList() {
   var currentTask = [];
 
@@ -72,47 +71,130 @@ function todoList() {
       imp: taskCheckbox.checked,
     });
 
-    renderTask()
+    renderTask();
 
-    taskCheckbox.checked = false
-    taskInput.value = ''
-    taskDetailsInput.value = ''
+    taskCheckbox.checked = false;
+    taskInput.value = "";
+    taskDetailsInput.value = "";
   });
 }
 
 todoList();
 
-function dailyPlanner(){
-  var dayPlanner = document.querySelector('.day-planner')
+function dailyPlanner() {
+  var dayPlanner = document.querySelector(".day-planner");
 
-var dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {}
+  var dayPlanData = JSON.parse(localStorage.getItem("dayPlanData")) || {};
 
-var hours = Array.from({length:18},(_,idx)=>`${6+idx}:00 - ${7+idx}:00`)
+  var hours = Array.from(
+    { length: 18 },
+    (_, idx) => `${6 + idx}:00 - ${7 + idx}:00`,
+  );
 
+  wholeDaySum = "";
+  hours.forEach(function (elem, idx) {
+    var savedData = dayPlanData[idx] || "";
 
-wholeDaySum = ''
-hours.forEach(function(elem,idx){
-
-  var savedData = dayPlanData[idx] || ''
-
-  wholeDaySum = wholeDaySum + `<div class="day-planner-time">
+    wholeDaySum =
+      wholeDaySum +
+      `<div class="day-planner-time">
   <p>${elem}</p>
   <input id=${idx} type="text" placeholder="..." value=${savedData}> 
-  </div>`
-})
+  </div>`;
+  });
 
-dayPlanner.innerHTML = wholeDaySum
+  dayPlanner.innerHTML = wholeDaySum;
 
-var dayPlannerInput = document.querySelectorAll('.day-planner input')
+  var dayPlannerInput = document.querySelectorAll(".day-planner input");
 
-dayPlannerInput.forEach(function(elem){
-  elem.addEventListener('input',function(){
-    dayPlanData[elem.id] = elem.value
+  dayPlannerInput.forEach(function (elem) {
+    elem.addEventListener("input", function () {
+      dayPlanData[elem.id] = elem.value;
 
-    localStorage.setItem('dayPlanData',JSON.stringify(dayPlanData))
-    
-  })
-})
+      localStorage.setItem("dayPlanData", JSON.stringify(dayPlanData));
+    });
+  });
 }
 
 dailyPlanner();
+
+function motivationalQuote() {
+  var motivationQuoteContent = document.querySelector(".motivation-2 h1");
+  var motivationAuthor = document.querySelector(".motivation-3 h2");
+
+  async function fetchQuote() {
+    let response = await fetch("https://api.quotable.io/random");
+    let data = await response.json();
+
+    motivationQuoteContent.innerHTML = data.content;
+    motivationAuthor.innerHTML = data.author;
+  }
+
+  fetchQuote();
+}
+
+motivationalQuote();
+
+let timer = document.querySelector(".pomo-timer h1");
+var startBtn = document.querySelector(".pomo-timer .start-timer");
+var pauseBtn = document.querySelector(".pomo-timer .pause-timer");
+var resetBtn = document.querySelector(".pomo-timer .reset-timer");
+var session = document.querySelector('.pomodoro-fullpage .session')
+var isWorkSession = true;
+
+let totalSeconds = 25 * 60;
+let timerInterval = null;
+
+function upDateTimer() {
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+  timer.innerHTML = `${Strings(minutes).padStart("2", "0")}:${Strings(seconds).padStart("2", "0")}`;
+}
+
+upDateTimer();
+
+function startTimer() {
+  clearInterval(timerInterval);
+
+  if(isWorkSession){
+    session.innerHTML = 'Work Session'
+    totalSeconds = 25*60
+    timerInterval = setInterval(function () {
+    if (totalSeconds > 0) {
+      totalSeconds--;
+      upDateTimer();
+    } else {
+      isWorkSession = false;
+      clearInterval(timerInterval);
+      timer.innerHTML = '05:00'
+    }
+  }, 1000);
+  }else{
+    session.innerHTML = 'Break'
+    totalSeconds = 5*60
+    timerInterval = setInterval(function () {
+    if (totalSeconds > 0) {
+      totalSeconds--;
+      upDateTimer();
+    } else {
+      isWorkSession = true;
+      clearInterval(timerInterval);
+      timer.innerHTML = '25:00'
+    }
+  }, 1000);
+  }
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+}
+function resetTimer() {
+  totalSeconds = 25 * 60;
+  clearInterval(timerInterval);
+  upDateTimer();
+}
+
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resetBtn.addEventListener("click", resetTimer);

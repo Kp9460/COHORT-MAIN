@@ -285,3 +285,130 @@ section.allElems{
     outline: none;
 }
 
+
+.motivational-fullpage{
+    position: relative;
+}
+.motivation-fullPage-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.motivational-fullpage .motivation-container{
+    height: 30vw;
+    width: 80%;
+    border-radius: 1vw;
+    position: relative;
+}
+.motivational-fullpage .motivation-container::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: rgb(211, 174, 7);
+    position: absolute;
+    border-radius: 1vw;
+    scale: 1.15;
+    z-index: 8;
+    filter: blur(120px);
+}
+.motivational-fullpage .motivation-container .motivation-wrapper{
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    border-radius: 1.6vw;
+    background-color: rgb(206, 93, 40);
+    padding: 0.8vw;
+    border: 5px solid rgb(44, 42, 41);
+}
+.motivation-1{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.motivation-1 h2{
+    background-color: rgba(22, 21, 22, 0.541);
+    padding: 1vw;
+    border-radius: 1vw;
+    width: fit-content;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: right;
+}
+.motivation-2{
+    padding: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+
+}
+.motivation-2 h1{
+    font-size: 2.5rem;
+    color: #111;
+    font-weight: 700;
+}
+.motivation-3{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 2vw;    
+}
+.motivation-3 h2{
+    background-color: rgba(22, 21, 22, 0.541);
+    padding: 1vw;
+    border-radius: 1vw;
+    width: fit-content;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: right;
+}
+.motivational-fullpage .motivation-container .motivation-wrapper img{
+    position: absolute;
+    top: 4%;
+    right: 5%;
+    opacity: 0.2;
+    height: 6.5vw;
+}
+
+
+.pomodoro-fullpage{
+    display: block;
+    position: relative;
+}
+.pomodoro-fullpage h2{
+    font-size: 3rem;
+}
+.pomodoro-fullpage .pomo-timer{
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.pomo-timer h1{
+    font-size: 9vw;
+}
+.pomo-timer button{
+    background-color: rgb(255, 102, 0);
+    font-size: 2.5vw;
+    margin: 0.5vw;
+    padding: 0.5vw 1.5vw;
+    border-radius: 0.7vw;
+    border: none;
+    box-shadow: 0px 0px 15px rgb(201, 184, 184);
+    transition: all ease 0.1s;
+}
+.pomo-timer button:active{
+    box-shadow: 0px 0px 0px black;
+}
+
+.pomodoro-fullpage .session{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(98, 194, 34);
+    padding: 0.5vw 1vw;
+    font-size: 1.8rem;
+    border-radius: 0.5vw;
+}
