@@ -1,11 +1,12 @@
-:root{
+:root {
     --pri: #87996ae5;
     --sec: #fffffffa;
-    --tri1: lightseagreen;
-    --tri2: #957C62;
+    --tri1: rgb(25, 26, 25);
+    --tri2: #96A78D;
     --red: red;
     --green: rgb(49, 184, 49);
     --blue: rgb(25, 179, 226);
+    --black: #111;
 }
 
 @font-face {
@@ -13,125 +14,161 @@
     font-weight: 500;
     src: url(./fonts/AeonikTRIAL-Regular.otf);
 }
+
 @font-face {
     font-family: aeonik;
     font-weight: 700;
     src: url(./fonts/AeonikTRIAL-Bold.otf);
 }
+
 @font-face {
     font-family: aeonik;
     font-weight: 200;
     src: url(./fonts/AeonikTRIAL-Light.otf);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: aeonik;
     color: var(--sec);
 }
-html,body{
+
+html,
+body {
     height: 100%;
     width: 100%;
 }
 
-#main{
-    height: 100%;
+#main {
+    height: 110%;
     width: 100%;
-    background-color: #111;
+    background-color: var(--tri1);
+    padding-top: 4.6vw;
 }
 
-section.allElems{
+section.allElems {
     height: 100%;
     width: 100%;
-    padding: 3vw;
+    padding: 2vw 3vw;
     position: absolute;
+    overflow: auto;
 }
-.allElems header{
-    height: 17vw;
+
+.allElems header {
+    /* height: 17vw; */
     width: 100%;
     background-image: url(https://i.pinimg.com/1200x/58/ab/89/58ab89b65504e2a93290a27bde42635e.jpg);
     background-size: cover;
     background-position: top;
     margin-bottom: 2vw;
     border-radius: 1vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 4vw;
+    padding: 1.5vw 3vw;
 }
-header .header1 h1{
+
+header .header1 h1 {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 2.3vw;
 }
-header .header1 h2{
+
+header .header1 h2 {
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+header .header1 h4 {
     font-size: 2rem;
     font-weight: 500;
 }
-header .header1 h4{
-    font-size: 3rem;
-    font-weight: 500;
-}
-header .header2 h2{
+
+header .header2 h2 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: -0.5vw;
 }
-header .header2 h4{
+
+header .header2 h4 {
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: 2vw;
 }
-header .header2 h3{
+
+header .header2 h3 {
     font-size: 1rem;
     font-weight: 500;
 }
 
-.allElems .allFeatures{
+.allElems .allFeatures {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: 2vw;
+    gap: 1.95vw;
 }
-.elem{
-    background-color: var(--tri2);
+
+.elem {
+    /* background-color: var(--tri1); */
     border-radius: 1vw;
     height: 20vw;
-    width: 16.5vw;
+    width: 17vw;
     font-size: 1.3rem;
     overflow: hidden;
     position: relative;
+    -webkit-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
     transition: all ease 0.2s;
     cursor: pointer;
+    -webkit-box-shadow: 5px 5px 20px rgba(167, 167, 167, 0.2);
     box-shadow: 5px 5px 20px rgba(167, 167, 167, 0.2);
 }
-.elem img{
+
+.elem img {
     height: 100%;
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
-.elem h2{
+
+.elem h2 {
     position: absolute;
     bottom: 5%;
     right: 5%;
     font-weight: 500;
     font-size: 1.3rem;
 }
-.elem:active{
+
+.elem:active {
     scale: 0.97;
 }
 
-.fullElem{
+.fullElem {
     height: 100%;
     width: 100%;
-    background-color: #111;
+    background-color: var(--tri1);
     padding: 2.5vw 4vw;
     display: none;
     position: absolute;
+    top: 0;
+    z-index: 999;
 }
-.back{
+
+.back {
     position: absolute;
     right: 5%;
     background-color: var(--red);
@@ -142,58 +179,75 @@ header .header2 h3{
     font-weight: 500;
     cursor: pointer;
 }
-.back:active{
+
+.back:active {
     scale: 0.97;
 }
 
 
-.todo-list-fullpage h2{
+.todo-list-fullpage h2 {
     font-size: 3rem;
 }
-.todo-list-fullpage .todo-container{
+
+.todo-list-fullpage .todo-container {
     height: 80%;
     width: 100%;
     margin-top: 3vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
-.todo-list-fullpage .todo-container .addTask{
+.todo-list-fullpage .todo-container .addTask {
     width: 33%;
     height: 100%;
     background-color: var(--tri2);
     border-radius: 1vw;
 }
-.todo-list-fullpage .todo-container .addTask form{
+
+.todo-list-fullpage .todo-container .addTask form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     padding: 2vw;
 }
-.todo-container .addTask form #task-input{
+
+.todo-container .addTask form #task-input {
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
     background-color: #ffffffe0;
-    color: #111;
+    color: var(--black);
     border-radius: 0.5vw;
     border: none;
     outline: none;
     margin-bottom: 2vw;
 }
-.todo-container .addTask form textarea{
+
+.todo-container .addTask form textarea {
     height: 13vw;
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
     background-color: #ffffffe0;
-    color: #111;
+    color: var(--black);
     border-radius: 0.5vw;
     border: none;
     outline: none;
     margin-bottom: 2vw;
 }
-.todo-container .addTask form button{
+
+.todo-container .addTask form button {
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
@@ -203,133 +257,185 @@ header .header2 h3{
     border: none;
     outline: none;
     margin-bottom: 2vw;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
     transition: all ease 0.3s;
     cursor: pointer;
 }
-.todo-container .addTask form button:active{
+
+.todo-container .addTask form button:active {
     scale: 0.98;
 }
 
-.todo-list-fullpage .todo-container .allTask{
+.todo-list-fullpage .todo-container .allTask {
     height: 100%;
     width: 65%;
     background-color: var(--tri2);
     border-radius: 1vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     padding: 2vw;
     overflow: auto;
 }
-.task{
+
+.task {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
     background-color: #ffffffe0;
     padding: 1vw;
     border-radius: 0.5vw;
 }
-.task-text{
-    overflow-wrap:break-word;
-    word-break:break-word;
+
+.task-text {
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
-.task-details{
-    display:none;
-    white-space:pre-wrap;
+
+.task-details {
+    display: none;
+    white-space: pre-wrap;
     color: #333;
     margin: -1.5vw 0;
 }
-.task.active .task-details{
-    display:block;
+
+.task.active .task-details {
+    display: block;
 }
-.task h5{
-    color: #222;
+
+.task h5 {
+    color: var(--black);
     font-size: 1.4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     gap: 0.4vw;
 }
-.task h5 span{
+
+.task h5 span {
     background-color: var(--red);
     color: rgba(255, 255, 255, 0.808);
     padding: 0.2vw 0.4vw;
     border-radius: 5vw;
     font-size: 0.7rem;
 }
-.task h5 span.true{
+
+.task h5 span.true {
     opacity: 1;
 }
-.task h5 span.false{
+
+.task h5 span.false {
     opacity: 0;
 }
-.task button{
+
+.task button {
     padding: 1vw;
     color: var(--sec);
-    background-color: green;
+    background-color: var(--green);
     font-size: 1rem;
     font-weight: 500;
     border-radius: 0.5vw;
     border: none;
 }
-.task button:active{
+
+.task button:active {
     scale: 0.97;
 }
-.mark-imp{
+
+.mark-imp {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     padding: 1vw 0.4vw;
     margin-bottom: 0.5vw;
     width: 100%;
     gap: 1vw;
 }
-.mark-imp input{
+
+.mark-imp input {
     scale: 1.8;
 }
-.mark-imp label{
+
+.mark-imp label {
     font-size: 1.1rem;
 }
 
-/* .daily-planner-fullpage{
-    display: block;
-} */
-.daily-planner-fullpage h2{
+
+.daily-planner-fullpage h2 {
     font-size: 3rem;
 }
-.daily-planner-fullpage .day-planner{
-    background-color: rgb(99, 141, 139);
+
+.daily-planner-fullpage .day-planner {
+    background-color: var(--tri2);
     height: 85%;
     width: 100%;
     margin-top: 2vw;
     border-radius: 0.7vw;
     padding: 1vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     overflow: auto;
 }
-.daily-planner-fullpage .day-planner .day-planner-time{
+
+.daily-planner-fullpage .day-planner .day-planner-time {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-radius: 0.5vw;
     position: relative;
     width: 49%;
     margin-bottom: 0.7vw;
 }
-.day-planner .day-planner-time p{
+
+.day-planner .day-planner-time p {
     position: absolute;
     top: 5%;
     left: 1.8%;
-    font-size: 0.83rem; 
-    color: whitesmoke;
+    font-size: 0.83rem;
+    color: var(--sec);
 }
-.day-planner .day-planner-time input{
+
+.day-planner .day-planner-time input {
     padding: 0.7vw 1.5vw;
     width: 100%;
     background-color: #1c2427;
-    color: rgba(72, 255, 0, 0.856);
+    color: var(--green);
     border: none;
     border-radius: 0.5vw;
     font-size: 1.3rem;
@@ -338,23 +444,29 @@ header .header2 h3{
 }
 
 
-.motivational-fullpage{
-    position: relative;
-}
-.motivation-fullPage-container{
+
+.motivation-fullPage-container {
     height: 100%;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
-.motivational-fullpage .motivation-container{
+
+.motivational-fullpage .motivation-container {
     height: 30vw;
     width: 80%;
     border-radius: 1vw;
     position: relative;
 }
-.motivational-fullpage .motivation-container::after{
+
+.motivational-fullpage .motivation-container::after {
     content: '';
     height: 100%;
     width: 100%;
@@ -363,9 +475,11 @@ header .header2 h3{
     border-radius: 1vw;
     scale: 1.15;
     z-index: 8;
+    -webkit-filter: blur(120px);
     filter: blur(120px);
 }
-.motivational-fullpage .motivation-container .motivation-wrapper{
+
+.motivational-fullpage .motivation-container .motivation-wrapper {
     z-index: 10;
     position: absolute;
     width: 100%;
@@ -374,47 +488,70 @@ header .header2 h3{
     padding: 0.8vw;
     border: 5px solid rgb(44, 42, 41);
 }
-.motivation-1{
+
+.motivation-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
-.motivation-1 h2{
+
+.motivation-1 h2 {
     background-color: rgba(22, 21, 22, 0.541);
     padding: 1vw;
     border-radius: 1vw;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: 2rem;
     font-weight: 500;
     text-align: right;
 }
-.motivation-2{
+
+.motivation-2 {
     padding: 2vw;
     margin-top: 2vw;
     margin-bottom: 1vw;
 
 }
-.motivation-2 h1{
+
+.motivation-2 h1 {
     font-size: 2.5rem;
-    color: #111;
+    color: var(--black);
     font-weight: 700;
 }
-.motivation-3{
+
+.motivation-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
-    margin-top: 2vw;    
+    margin-top: 2vw;
 }
-.motivation-3 h2{
+
+.motivation-3 h2 {
     background-color: rgba(22, 21, 22, 0.541);
     padding: 1vw;
     border-radius: 1vw;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: 2rem;
     font-weight: 500;
     text-align: right;
 }
-.motivational-fullpage .motivation-container .motivation-wrapper img{
+
+.motivational-fullpage .motivation-container .motivation-wrapper img {
     position: absolute;
     top: 4%;
     right: 5%;
@@ -423,41 +560,51 @@ header .header2 h3{
 }
 
 
-.pomodoro-fullpage{
-    position: relative;
-}
-.pomodoro-fullpage h2{
+
+.pomodoro-fullpage h2 {
     font-size: 3rem;
 }
-.pomodoro-fullpage .pomo-timer{
+
+.pomodoro-fullpage .pomo-timer {
     position: absolute;
     top: 46%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
 }
-.pomo-timer h1{
+
+.pomo-timer h1 {
     font-size: 9vw;
 }
-.pomo-timer button{
+
+.pomo-timer button {
     background-color: rgb(255, 102, 0);
     font-size: 2.5vw;
     margin: 0.5vw;
     padding: 0.5vw 1.5vw;
     border-radius: 0.7vw;
     border: none;
+    -webkit-box-shadow: 0px 0px 15px rgb(201, 184, 184);
     box-shadow: 0px 0px 15px rgb(201, 184, 184);
+    -webkit-transition: all ease 0.1s;
+    -o-transition: all ease 0.1s;
     transition: all ease 0.1s;
 }
-.pomo-timer button:active{
-    box-shadow: 0px 0px 0px black;
+
+.pomo-timer button:active {
+    -webkit-box-shadow: 0px 0px 0px var(--black);
+    box-shadow: 0px 0px 0px var(--black);
 }
 
-.pomodoro-fullpage .session{
+.pomodoro-fullpage .session {
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     background-color: var(--green);
     padding: 0.5vw 1vw;
     font-size: 1.8rem;
@@ -465,82 +612,116 @@ header .header2 h3{
 }
 
 
-.daily-goals-fullpage h2{
+.daily-goals-fullpage h2 {
     font-size: 3rem;
 }
-.daily-goals-fullpage .goal-container{
+
+.daily-goals-fullpage .goal-container {
     height: 80%;
     width: 100%;
     margin-top: 3vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
-.daily-goals-fullpage .goal-container .addGoal{
+
+.daily-goals-fullpage .goal-container .addGoal {
     width: 33%;
     height: 100%;
     background-color: var(--tri2);
     border-radius: 1vw;
 }
-.daily-goals-fullpage .goal-container .addGoal form{
+
+.daily-goals-fullpage .goal-container .addGoal form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     padding: 2vw;
 }
-.goal-container .addGoal form #goal-input{
+
+.goal-container .addGoal form #goal-input {
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
     background-color: #ffffffe0;
-    color: #111;
+    color: var(--black);
     border-radius: 0.5vw;
     border: none;
     outline: none;
     margin-bottom: 2vw;
 }
-.goal-container .addGoal form textarea{
+
+.goal-container .addGoal form textarea {
     height: 13vw;
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
     background-color: #ffffffe0;
-    color: #111;
+    color: var(--black);
     border-radius: 0.5vw;
     border: none;
     outline: none;
     margin-bottom: 2vw;
 }
-.goal-container .addGoal form button{
+
+.goal-container .addGoal form button {
     width: 100%;
     padding: 1vw 1.5vw;
     font-size: 1.2rem;
-    background-color: #b0d312;
+    background-color: #8b4003;
     font-weight: 500;
     border-radius: 0.5vw;
     border: none;
     outline: none;
     margin-bottom: 2vw;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
     transition: all ease 0.3s;
     cursor: pointer;
 }
-.goal-container .addGoal form button:active{
+
+.goal-container .addGoal form button:active {
     scale: 0.98;
 }
 
-.daily-goals-fullpage .goal-container .allGoal{
+.daily-goals-fullpage .goal-container .allGoal {
     height: 100%;
     width: 65%;
     background-color: var(--tri2);
     border-radius: 1vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     padding: 2vw;
     overflow: auto;
 }
-.goal{
+
+.goal {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
     background-color: #ffffffe0;
@@ -548,66 +729,141 @@ header .header2 h3{
     border-radius: 0.5vw;
     margin-bottom: 10px;
 }
-.goal-text{
-    display:flex;
-    flex-direction:column;
-    overflow-wrap:break-word;
-    word-break:break-word;
+
+.goal-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
-.goal-details{
+
+.goal-details {
     display: none;
     font-size: 1rem;
     margin-top: 15px;
     color: #333;
     white-space: pre-wrap;
 }
-.goal.active .goal-details{
-    display:block;
+
+.goal.active .goal-details {
+    display: block;
 }
-.goal h5{
+
+.goal h5 {
     color: #222;
     font-size: 1.4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     gap: 0.4vw;
 }
-.goal h5 span{
+
+.goal h5 span {
     background-color: var(--red);
     color: rgba(255, 255, 255, 0.808);
     padding: 0.2vw 0.4vw;
     border-radius: 5vw;
     font-size: 0.7rem;
 }
-.goal h5 span.true{
+
+.goal h5 span.true {
     opacity: 1;
 }
-.goal h5 span.false{
+
+.goal h5 span.false {
     opacity: 0;
 }
-.goal button{
+
+.goal button {
     padding: 1vw;
     color: var(--sec);
-    background-color: green;
+    background-color: var(--green);
     font-size: 1rem;
     font-weight: 500;
     border-radius: 0.5vw;
     border: none;
 }
-.goal button:active{
+
+.goal button:active {
     scale: 0.97;
 }
-.mark-imp{
+
+.mark-imp {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     padding: 1vw 0.4vw;
     margin-bottom: 0.5vw;
     width: 100%;
     gap: 1vw;
 }
-.mark-imp input{
+
+.mark-imp input {
     scale: 1.8;
 }
-.mark-imp label{
+
+.mark-imp label {
     font-size: 1.1rem;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    height: 3vw;
+    width: 100%;
+    padding: 1.5vw 3vw 1.5vw 3vw;
+    margin-bottom: 1.5vw;
+}
+
+.nav-in {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: var(--pri);
+    padding: 0.7vw;
+    border-radius: 0.5vw;
+}
+
+.nav-in h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.theme {
+    background-color: var(--sec);
+    padding: 0.5vw 0.8vw;
+    border-radius: 0.4vw;
+    cursor: pointer;
+}
+
+.theme h4 {
+    color: var(--black);
+    font-weight: 700;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.theme:active {
+    scale: 0.95;
 }
