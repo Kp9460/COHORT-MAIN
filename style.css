@@ -64,18 +64,25 @@ section.allElems{
 header .header1 h1{
     font-size: 4rem;
     font-weight: 700;
+    margin-bottom: 2.3vw;
+}
+header .header1 h2{
+    font-size: 2rem;
+    font-weight: 500;
 }
 header .header1 h4{
     font-size: 3rem;
     font-weight: 500;
 }
 header .header2 h2{
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
+    margin-bottom: -0.5vw;
 }
 header .header2 h4{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
+    margin-bottom: 2vw;
 }
 header .header2 h3{
     font-size: 1rem;
