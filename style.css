@@ -62,8 +62,8 @@ section.allElems {
     width: 100%;
     background-image: url(https://i.pinimg.com/1200x/58/ab/89/58ab89b65504e2a93290a27bde42635e.jpg);
     background-size: cover;
-    background-position: top;
-    margin-bottom: 2vw;
+    background-position: center;
+    margin-bottom: 1.5vw;
     border-radius: 1vw;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -74,7 +74,7 @@ section.allElems {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 1.5vw 3vw;
+    padding: 2.5vw 3vw;
 }
 
 header .header1 h1 {
@@ -866,4 +866,283 @@ nav {
 
 .theme:active {
     scale: 0.95;
+}
+
+
+
+
+
+/* Mobile Devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    #main {
+        padding-top: 10vw !important;
+    }
+    
+    nav {
+        height: 15vw !important;
+        padding: 3vw 3vw !important;
+    }
+    .nav-in{
+        padding: 1.8vw !important;
+    }
+    .nav-in h2 {
+        font-size: 1rem !important;
+    }
+    
+    .theme {
+        padding: 1.5vw 2vw !important;
+    }
+    
+    .theme h4 {
+        font-size: 0.7rem !important;
+    }
+    
+    .allElems {
+        padding: 4vw 5vw !important;
+    }
+    
+    section.allElems {
+        padding-bottom: 20vw !important;
+    }
+    
+    /* Header Section */
+    header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 3vw !important;
+        padding: 5vw 6vw !important;
+        margin-bottom: 3vw !important;
+        border-radius: 1.5vw !important;
+    }
+    
+    header .header1 h1 {
+        font-size: 1.6rem !important;
+        margin-bottom: 5vw !important;
+    }
+    
+    header .header1 h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    header .header1 h4 {
+        font-size: 1.5rem !important;
+    }
+    
+    header .header2 h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    header .header2 h4 {
+        font-size: 1rem !important;
+    }
+    
+    header .header2 h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Features Grid */
+    .allFeatures {
+        gap: 4vw !important;
+        justify-content: center !important;
+    }
+    
+    .elem {
+        height: 40vw !important;
+        width: 40vw !important;
+        border-radius: 2vw !important;
+    }
+    
+    .elem h2 {
+        font-size: 1rem !important;
+    }
+    
+    /* Full Page Modals */
+    .fullElem {
+        padding: 8vw 5vw !important;
+        overflow-y: auto !important;
+    }
+    
+    .back {
+        padding: 8px 15px !important;
+        font-size: 1rem !important;
+        top: 3% !important;
+        right: 5% !important;
+    }
+    
+    /* Todo List */
+    .todo-list-fullpage h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 8vw !important;
+    }
+    
+    .todo-list-fullpage .todo-container {
+        flex-direction: column !important;
+        gap: 4vw !important;
+    }
+    
+    .todo-list-fullpage .todo-container .addTask,
+    .todo-list-fullpage .todo-container .allTask {
+        width: 100% !important;
+    }
+    
+    .todo-container .addTask form {
+        padding: 5vw !important;
+    }
+    
+    .todo-container .addTask form #task-input,
+    .todo-container .addTask form textarea,
+    .todo-container .addTask form button {
+        padding: 3vw 4vw !important;
+        font-size: 1rem !important;
+    }
+    
+    .todo-container .addTask form textarea {
+        height: 25vw !important;
+    }
+    
+    .task {
+        padding: 4vw !important;
+    }
+    
+    .task h5 {
+        font-size: 1.4rem !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .task button {
+        padding: 2vw 5vw !important;
+        font-size: 0.5rem !important;
+    }
+    
+    /* Daily Planner */
+    .daily-planner-fullpage h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 8vw !important;
+    }
+    
+    .daily-planner-fullpage .day-planner {
+        height: auto !important;
+        max-height: 80vh !important;
+    }
+    
+    .daily-planner-fullpage .day-planner .day-planner-time {
+        width: 100% !important;
+        margin-bottom: 2vw !important;
+    }
+    
+    .day-planner .day-planner-time input {
+        padding: 3vw 4vw !important;
+        padding-top: 8vw !important;
+        font-size: 1rem !important;
+    }
+    
+    .day-planner .day-planner-time p {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Motivational Quote */
+    .motivational-fullpage .motivation-container {
+        height: 70vw !important;
+        width: 95% !important;
+    }
+    
+    .motivation-1 h2,
+    .motivation-3 h2 {
+        font-size: 1.5rem !important;
+        padding: 2vw 3vw !important;
+    }
+    
+    .motivation-2 {
+        padding: 4vw !important;
+    }
+    
+    .motivation-2 h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .motivational-fullpage .motivation-container .motivation-wrapper img {
+        height: 12vw !important;
+        top: 2% !important;
+        right: 3% !important;
+    }
+    
+    /* Pomodoro Timer */
+    .pomodoro-fullpage h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .pomo-timer h1 {
+        font-size: 27vw !important;
+    }
+    
+    .pomo-timer button {
+        font-size: 7vw !important;
+        padding: 2vw 4vw !important;
+        margin: 2vw !important;
+    }
+    
+    .pomodoro-fullpage .session {
+        font-size: 1.6rem !important;
+        padding: 3vw 5vw !important;
+        top: 15% !important;
+    }
+    
+    /* Daily Goals */
+    .daily-goals-fullpage h2 {
+        font-size: 1.2rem !important;
+        margin-bottom: 8vw !important;
+    }
+    
+    .daily-goals-fullpage .goal-container {
+        flex-direction: column !important;
+        gap: 4vw !important;
+    }
+    
+    .daily-goals-fullpage .goal-container .addGoal,
+    .daily-goals-fullpage .goal-container .allGoal {
+        width: 100% !important;
+    }
+    
+    .goal-container .addGoal form {
+        padding: 5vw !important;
+    }
+    
+    .goal-container .addGoal form #goal-input,
+    .goal-container .addGoal form textarea,
+    .goal-container .addGoal form button {
+        padding: 3vw 4vw !important;
+        font-size: 1rem !important;
+    }
+    
+    .goal-container .addGoal form textarea {
+        height: 25vw !important;
+    }
+    
+    .goal {
+        padding: 4vw !important;
+    }
+    
+    .goal h5 {
+        font-size: 1.7rem !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .goal button {
+        padding: 2vw 4vw !important;
+        font-size: 0.9rem !important;
+        border-radius: 1.1vw !important;
+    }
+    
+    /* Mark Important Checkbox */
+    .mark-imp {
+        padding: 2vw !important;
+    }
+    
+    .mark-imp input {
+        scale: 1.2 !important;
+    }
+    
+    .mark-imp label {
+        font-size: 1.3rem !important;
+    }
 }

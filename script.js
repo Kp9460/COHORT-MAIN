@@ -139,7 +139,7 @@ function motivationalQuote() {
   var motivationAuthor = document.querySelector(".motivation-3 h2");
 
   async function fetchQuote() {
-    let response = await fetch("https://api.quotable.io/random");
+    let response = await fetch("http://api.quotable.io/random");
     let data = await response.json();
 
     motivationQuoteContent.innerHTML = data.content;
@@ -380,10 +380,10 @@ var flag = 0
 theme.addEventListener("click",function(){
 
   if(flag == 0){
-    rootElement.style.setProperty('--pri','#E3DBBB')
-    rootElement.style.setProperty('--sec','#F8F3E1')
-    rootElement.style.setProperty('--tri1','#41431B')
-    rootElement.style.setProperty('--tri2','#AEB784')
+    rootElement.style.setProperty('--pri','#79af5a')
+    rootElement.style.setProperty('--sec','#F5F5F7')
+    rootElement.style.setProperty('--tri1','grey')
+    rootElement.style.setProperty('--tri2','#454242')
     flag = 1
   }else if(flag == 1){
     rootElement.style.setProperty('--pri','#C8AAAA')
@@ -392,11 +392,11 @@ theme.addEventListener("click",function(){
     rootElement.style.setProperty('--tri2','#9F8383')
     flag = 2
   }else{
-    rootElement.style.setProperty('--pri','#EDDFE0')
-    rootElement.style.setProperty('--sec','#F5F5F7')
-    rootElement.style.setProperty('--tri1','#705C53')
-    rootElement.style.setProperty('--tri2','#B7B7B7')
-    flag = 0
+    rootElement.style.setProperty('--pri','#87996ae5')
+    rootElement.style.setProperty('--sec','#F8F3E1')
+    rootElement.style.setProperty('--tri1','#111')
+    rootElement.style.setProperty('--tri2','#AEB784')
+    flag = 0 
   }
   
 })
