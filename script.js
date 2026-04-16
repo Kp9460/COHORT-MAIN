@@ -138,15 +138,101 @@ function motivationalQuote() {
   var motivationQuoteContent = document.querySelector(".motivation-2 h1");
   var motivationAuthor = document.querySelector(".motivation-3 h2");
 
-  async function fetchQuote() {
-    let response = await fetch("https://api.quotable.io/random");
-    let data = await response.json();
+  var quotes = [
+    {
+      content: "The secret of getting ahead is getting started.",
+      author: "Mark Twain",
+    },
+    {
+      content: "Do what you can, with what you have, where you are.",
+      author: "Theodore Roosevelt",
+    },
+    {
+      content:
+        "You don't have to be great to start, but you have to start to be great.",
+      author: "Zig Ziglar",
+    },
+    {
+      content:
+        "Productivity is never an accident. It is always the result of commitment to excellence.",
+      author: "Paul J. Meyer",
+    },
+    {
+      content: "Focus on being productive instead of busy.",
+      author: "Tim Ferriss",
+    },
+    {
+      content: "The way to get started is to quit talking and begin doing.",
+      author: "Walt Disney",
+    },
+    {
+      content: "Don't watch the clock; do what it does. Keep going.",
+      author: "Sam Levenson",
+    },
+    {
+      content: "Either you run the day, or the day runs you.",
+      author: "Jim Rohn",
+    },
+    {
+      content: "Small daily improvements over time lead to stunning results.",
+      author: "Robin Sharma",
+    },
+    {
+      content:
+        "Success is the sum of small efforts, repeated day in and day out.",
+      author: "Robert Collier",
+    },
+    {
+      content: "Your future is created by what you do today, not tomorrow.",
+      author: "Robert Kiyosaki",
+    },
+    {
+      content:
+        "The only limit to our realization of tomorrow is our doubts of today.",
+      author: "Franklin D. Roosevelt",
+    },
+    {
+      content:
+        "Amateurs sit and wait for inspiration, the rest of us just get up and go to work.",
+      author: "Stephen King",
+    },
+    {
+      content: "Action is the foundational key to all success.",
+      author: "Pablo Picasso",
+    },
+    {
+      content:
+        "The best time to plant a tree was 20 years ago. The second best time is now.",
+      author: "Chinese Proverb",
+    },
+    {
+      content: "It's not about having time, it's about making time.",
+      author: "Anonymous",
+    },
+    {
+      content: "Do the hard work first. Easy work will take care of itself.",
+      author: "Dale Carnegie",
+    },
+    {
+      content: "Start where you are. Use what you have. Do what you can.",
+      author: "Arthur Ashe",
+    },
+    {
+      content:
+        "One hour of focused work beats four hours of distracted effort.",
+      author: "Cal Newport",
+    },
+    {
+      content: "Every accomplishment starts with the decision to try.",
+      author: "John F. Kennedy",
+    },
+  ];
 
-    motivationQuoteContent.innerHTML = data.content;
-    motivationAuthor.innerHTML = data.author;
-  }
+  var randomIndex = Math.floor(Math.random() * quotes.length);
+  var selectedQuote = quotes[randomIndex];
 
-  fetchQuote();
+  motivationQuoteContent.textContent = selectedQuote.content;
+  motivationAuthor.textContent = selectedQuote.author;
 }
 
 motivationalQuote();
@@ -292,7 +378,8 @@ function dailyGoals() {
 dailyGoals();
 
 function weatherFunctionality() {
-  var city = "jawai bandh";
+  var city = localStorage.getItem("userCity");
+
   var apiKey = "4262348c58b74fb997f205825262502";
   var header1Time = document.querySelector(".header1 h1");
   var header1Date = document.querySelector(".header1 h2");
@@ -302,22 +389,40 @@ function weatherFunctionality() {
   var humidity = document.querySelector(".header2 .humidity");
   var wind = document.querySelector(".header2 .wind");
 
-  var data = null;
+  var cityDisplay = document.getElementById("cityName");
+  if (cityDisplay) cityDisplay.textContent = city;
 
   async function weatherAPICall() {
-    var response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
-    );
-    data = await response.json();
+    try {
+      var response = await fetch(
+        `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`,
+      );
+      var data = await response.json();
 
-    header2Temp.innerHTML = `${data.current.temp_c}°C`;
-    header2Condition.innerHTML = `${data.current.condition.text}`;
-    wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
-    humidity.innerHTML = `Humidity: ${data.current.humidity} %`;
-    precipitation.innerHTML = `Heat Index: ${data.current.heatindex_c} %`;
+      header2Temp.innerHTML = `${data.current.temp_c}°C`;
+      header2Condition.innerHTML = `${data.current.condition.text}`;
+      wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
+      humidity.innerHTML = `Humidity: ${data.current.humidity} %`;
+      precipitation.innerHTML = `Heat Index: ${data.current.heatindex_c} %`;
+    } catch (error) {
+      console.error("Weather fetch error:", error);
+    }
   }
 
   weatherAPICall();
+
+  var changeBtn = document.getElementById("changeCityBtn");
+  if (changeBtn) {
+    changeBtn.addEventListener("click", function () {
+      var newCity = prompt("Enter city name:", city);
+      if (newCity && newCity.trim() !== "") {
+        city = newCity.trim();
+        localStorage.setItem("userCity", city);
+        if (cityDisplay) cityDisplay.textContent = city;
+        weatherAPICall();
+      }
+    });
+  }
 
   function timeDate() {
     const totalDaysOfWeek = [
@@ -363,43 +468,38 @@ function weatherFunctionality() {
   }
 
   timeDate();
-
-  setInterval(() => {
-    timeDate();
-  }, 1000);
+  setInterval(timeDate, 1000);
 }
 
-weatherFunctionality()
+weatherFunctionality();
 
-function changeTheme(){
-  var theme = document.querySelector('.theme')
-var rootElement = document.documentElement
+function changeTheme() {
+  var theme = document.querySelector(".theme");
+  var rootElement = document.documentElement;
 
-var flag = 0
+  var flag = 0;
 
-theme.addEventListener("click",function(){
-
-  if(flag == 0){
-    rootElement.style.setProperty('--pri','#79af5a')
-    rootElement.style.setProperty('--sec','#F5F5F7')
-    rootElement.style.setProperty('--tri1','grey')
-    rootElement.style.setProperty('--tri2','#454242')
-    flag = 1
-  }else if(flag == 1){
-    rootElement.style.setProperty('--pri','#C8AAAA')
-    rootElement.style.setProperty('--sec','#FFDAB3')
-    rootElement.style.setProperty('--tri1','#574964')
-    rootElement.style.setProperty('--tri2','#9F8383')
-    flag = 2
-  }else{
-    rootElement.style.setProperty('--pri','#87996ae5')
-    rootElement.style.setProperty('--sec','#F8F3E1')
-    rootElement.style.setProperty('--tri1','#111')
-    rootElement.style.setProperty('--tri2','#AEB784')
-    flag = 0 
-  }
-  
-})
+  theme.addEventListener("click", function () {
+    if (flag == 0) {
+      rootElement.style.setProperty("--pri", "#79af5a");
+      rootElement.style.setProperty("--sec", "#F5F5F7");
+      rootElement.style.setProperty("--tri1", "grey");
+      rootElement.style.setProperty("--tri2", "#454242");
+      flag = 1;
+    } else if (flag == 1) {
+      rootElement.style.setProperty("--pri", "#C8AAAA");
+      rootElement.style.setProperty("--sec", "#FFDAB3");
+      rootElement.style.setProperty("--tri1", "#574964");
+      rootElement.style.setProperty("--tri2", "#9F8383");
+      flag = 2;
+    } else {
+      rootElement.style.setProperty("--pri", "#87996ae5");
+      rootElement.style.setProperty("--sec", "#F8F3E1");
+      rootElement.style.setProperty("--tri1", "#111");
+      rootElement.style.setProperty("--tri2", "#AEB784");
+      flag = 0;
+    }
+  });
 }
 
-changeTheme()
+changeTheme();
